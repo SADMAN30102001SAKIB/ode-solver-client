@@ -146,6 +146,7 @@ body {
 
   #error {
     font-size: smaller;
+    width: 100%;
   }
 
   .label1 {
