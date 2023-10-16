@@ -8,9 +8,10 @@ body {
   width: 100%;
   background-image: linear-gradient(
     to bottom,
-    rgba(228, 212, 212, 0.653),
-    rgba(199, 199, 199, 0.584)
+    rgb(236, 224, 218),
+    rgb(221, 221, 221)
   );
+  backdrop-filter: blur(10px);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -44,6 +45,9 @@ body {
 }
 
 .container {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   max-width: 800px;
   display: flex;
@@ -52,6 +56,14 @@ body {
   flex-direction: column;
   position: relative;
   overflow-x: hidden;
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 100%;
 }
 
 #myForm {
@@ -66,12 +78,12 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-bottom: 1%;
+  margin-bottom: 5%;
   margin-top: 3%;
 }
 
 .inputField {
-  width: 300%;
+  width: 100%;
   max-width: 800px;
   height: 3rem;
   padding-left: 5%;
