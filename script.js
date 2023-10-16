@@ -224,9 +224,12 @@ form2.addEventListener("submit", function (event) {
 function renderEquation(response, element) {
   response = response.replace("\\left[", "");
   response = response.replace("\\right]", "");
-  response = replaceAllOccurrences(response, "y{\\left(x \\right)}", "y");
-  response = response.split(",");
   // console.log(response);
+  if (response.includes(", \\  y")) {
+    response = response.split(",");
+  } else {
+    response = response.split("?");
+  }
   element.innerHTML = "";
 
   for (let i = 0; i < response.length; i++) {
@@ -239,6 +242,11 @@ function renderEquation(response, element) {
     if (element.id == "eq") {
       newElement.textContent = "Entered ODE:";
     } else {
+      response[i] = replaceAllOccurrences(
+        response[i],
+        "y{\\left(x \\right)}",
+        "y"
+      );
       newElement.textContent = "General Solution " + (i + 1) + ":";
     }
     childElement.parentNode.insertBefore(newElement, childElement);
