@@ -5,7 +5,7 @@
 }
 
 body {
-  width: 100%;
+  width: 100vw;
   background-image: linear-gradient(
     to bottom,
     rgb(236, 224, 218),
@@ -16,7 +16,6 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  scroll-behavior: smooth;
   font-family: "Tilt Neon";
   overflow-x: hidden;
 }
@@ -29,7 +28,8 @@ body {
   right: -50%;
   background-color: #333;
   overflow-x: hidden;
-  transition: 0.5s;
+  transition: right 0.5s;
+  transform: scale(0);
   z-index: 1;
   padding: 5%;
 }
@@ -105,7 +105,7 @@ li {
   top: 0;
   left: 0;
   width: 100%;
-  max-width: 800px;
+  max-width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
