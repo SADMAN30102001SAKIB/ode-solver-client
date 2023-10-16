@@ -11,12 +11,20 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function closeSidebar() {
-    sidebar.style.right = "-50%";
+    if (sidebar.clientWidth < 700) {
+      sidebar.style.right = "-80%";
+    } else {
+      sidebar.style.right = "-50%";
+    }
     burger.classList.remove("change");
   }
 
   burger.addEventListener("click", function () {
-    if (sidebar.style.right == "-50%") {
+    if (
+      sidebar.style.right == "-50%" ||
+      sidebar.style.right == "-80%" ||
+      sidebar.style.right == ""
+    ) {
       openSidebar();
     } else {
       closeSidebar();
