@@ -6,50 +6,51 @@
 
 body {
   width: 100%;
-  height: 200vh;
   background-image: linear-gradient(
     to bottom,
     rgba(228, 212, 212, 0.653),
     rgba(199, 199, 199, 0.584)
   );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Ensures the body takes at least the full viewport height */
+  scroll-behavior: smooth;
 }
 
-#eq {
+#eq,
+#order,
+#ans,
+#partAns {
   margin: 1%;
-  width: 40%;
-}
-
-#order {
-  margin: 1%;
-  width: 40%;
-}
-
-.lable {
-  margin: 5%;
-}
-
-#ans {
-  margin: 1%;
-  width: 40%;
+  width: 100%; /* Adjust the width as needed for responsiveness */
+  margin-left: 20%;
 }
 
 #partAns {
-  margin: 1%;
-  width: 40%;
+  margin-bottom: 10%;
+}
+
+.lable {
+  margin: 0%;
+  margin-top: 5%;
 }
 
 .container {
+  width: 100%;
+  max-width: 800px; /* Set a maximum width to prevent content from becoming too wide on large screens */
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   position: relative;
-  top: 2%;
+  overflow-x: hidden;
 }
 
 #myForm {
-  /* position: absolute; */
-  width: 40%;
+  width: 100%;
+  max-width: 400px; /* Adjust the maximum width as needed */
+  padding-right: 10%;
 }
 
 #formData {
@@ -58,11 +59,13 @@ body {
   align-items: center;
   flex-direction: column;
   margin-bottom: 1%;
+  margin-top: 3%;
 }
 
 .inputField {
   width: 300%;
-  height: 50px;
+  max-width: 800px; /* Adjust the maximum width as needed */
+  height: 3rem;
   padding-left: 5%;
   border-radius: 20px;
   font-weight: bold;
@@ -115,4 +118,41 @@ body {
 .btn2:hover {
   transform: scale(1.05);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  .inputField {
+    width: 180%;
+    max-width: 400px;
+    font-weight: normal;
+    font-size: medium;
+  }
+
+  #eq,
+  #order,
+  #ans,
+  #partAns {
+    margin-left: 10%;
+  }
+
+  #order {
+    width: 90%;
+  }
+
+  #myForm {
+    padding-right: 0%;
+  }
+
+  .label1 {
+    margin-left: 24%;
+  }
+
+  .btn2 {
+    margin-left: 22%;
+  }
+
+  h2 {
+    font-size: large;
+  }
 }
