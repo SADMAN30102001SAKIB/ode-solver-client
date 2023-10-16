@@ -18,7 +18,6 @@ function replaceAllOccurrences(
 }
 
 function createFormWithInputs(n) {
-  // console.log(form2);
   const form = document.getElementById("myForm");
 
   if (!document.getElementById("ins")) {
@@ -67,12 +66,11 @@ function createFormWithInputs(n) {
   const submitButton = document.createElement("input");
   submitButton.type = "submit";
   submitButton.classList.add("btn2");
-  submitButton.value = "Get Particular Solution";
+  submitButton.value = "Get Particular Soln";
 
   form.appendChild(submitButton);
 
   form2 = document.getElementById("myForm");
-  // console.log(form2);
 }
 
 var flag = 1;
@@ -93,7 +91,6 @@ form.addEventListener("input", function () {
 form.addEventListener("submit", function (e) {
   e.preventDefault();
   if (flag) {
-    // console.log(document.getElementById("myFrom"));
     document.getElementById("error").innerText = "";
     document.getElementsByClassName("btn")[0].innerText = "Solving equation...";
     document.getElementById("order").innerText = "";
@@ -145,7 +142,6 @@ form.addEventListener("submit", function (e) {
             "Get General Solution";
           document.getElementById("order").innerText = orderEq;
           const order = orderEq.split("order")[1];
-          // console.log(parseInt(order));
           createFormWithInputs(parseInt(order));
           renderEquation(enteredEq, document.getElementById("eq"));
           renderEquation(generalEq, document.getElementById("ans"));
@@ -162,9 +158,7 @@ form2.addEventListener("submit", function (event) {
   event.preventDefault();
   if (flag2) {
     document.getElementById("error").innerText = "";
-    document.getElementsByClassName("btn2")[0].value =
-      "    Solving equation...    ";
-    console.log(document.getElementsByClassName("btn2")[0]);
+    document.getElementsByClassName("btn2")[0].value = "Solving equation...";
     var form2 = document.getElementById("myForm");
 
     const formData = new FormData(form2);
@@ -175,7 +169,7 @@ form2.addEventListener("submit", function (event) {
     formData.forEach((value, key) => {
       if (value < 0 && key.startsWith("^")) {
         document.getElementsByClassName("btn2")[0].value =
-          "Get Particular Solution";
+          "Get Particular Soln";
         document.getElementById("error").innerText =
           "y's power can't be negative.";
         document.getElementById("partAns").innerText = "";
@@ -183,7 +177,7 @@ form2.addEventListener("submit", function (event) {
         f = 0;
       } else if (isNaN(value)) {
         document.getElementsByClassName("btn2")[0].value =
-          "Get Particular Solution";
+          "Get Particular Soln";
         document.getElementById("error").innerText =
           "All conditions should be a number.";
         document.getElementById("partAns").innerText = "";
@@ -198,7 +192,7 @@ form2.addEventListener("submit", function (event) {
         }
       } else if (f) {
         document.getElementsByClassName("btn2")[0].value =
-          "Get Particular Solution";
+          "Get Particular Soln";
         document.getElementById("error").innerText =
           "All conditions are required.";
         document.getElementById("partAns").innerText = "";
@@ -221,9 +215,6 @@ form2.addEventListener("submit", function (event) {
         arr[data["^" + (i + 1)]].push(parseInt(data["x" + (i + 1)]));
         arr[data["^" + (i + 1)]].push(parseInt(data["y" + (i + 1)]));
       }
-      // console.log(arr);
-      // console.log(max);
-      // console.log(data);
 
       const equation = document.getElementById("odeEq").value;
 
@@ -237,16 +228,15 @@ form2.addEventListener("submit", function (event) {
       xhr.onreadystatechange = function () {
         if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
           const response = JSON.parse(xhr.responseText);
-          // console.log(response[0]);
           flag2 = 1;
 
           if (response[0].startsWith("Can")) {
             document.getElementsByClassName("btn2")[0].value =
-              "Get Particular Solution";
+              "Get Particular Soln";
             document.getElementById("error").innerText = response[0];
           } else {
             document.getElementsByClassName("btn2")[0].value =
-              "Get Particular Solution";
+              "Get Particular Soln";
             document.getElementById("error").innerText = "";
             renderEquation2(response[0], document.getElementById("partAns"));
           }
@@ -261,7 +251,6 @@ form2.addEventListener("submit", function (event) {
 function renderEquation(response, element) {
   response = response.replace("\\left[", "");
   response = response.replace("\\right]", "");
-  // console.log(response);
   if (response.includes(", \\  y")) {
     response = response.split(",");
   } else {
@@ -294,7 +283,6 @@ function renderEquation(response, element) {
 
 function renderEquation2(response, element) {
   response = replaceAllOccurrences(response, "y{\\left(x \\right)}", "y");
-  // console.log(response);
   element.innerHTML = "";
 
   const childElement = document.createElement("div");
