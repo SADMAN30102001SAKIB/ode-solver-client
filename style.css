@@ -16,6 +16,7 @@ body {
   align-items: center;
   min-height: 100vh; /* Ensures the body takes at least the full viewport height */
   scroll-behavior: smooth;
+  font-family: cursive;
 }
 
 #eq,
