@@ -87,6 +87,7 @@ form.addEventListener("input", function () {
   if (document.getElementById("ins")) {
     document.getElementById("ins").innerText = "";
   }
+  flag = 1;
 });
 
 form.addEventListener("submit", function (e) {
@@ -114,11 +115,15 @@ form.addEventListener("submit", function (e) {
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.onreadystatechange = function () {
       if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+        document.getElementById("myForm").innerHTML = "";
+        document.getElementById("partAns").innerText = "";
+
         const response = JSON.parse(xhr.responseText);
-        // console.log(response);
         const enteredEq = response[0];
         const generalEq = response[1];
         const orderEq = response[2];
+        const inputEq = response[3];
+        console.log(response);
         flag = 1;
 
         if (
@@ -129,6 +134,7 @@ form.addEventListener("submit", function (e) {
         ) {
           document.getElementById("error").innerText = enteredEq;
         } else {
+          document.getElementById("odeEq").value = inputEq;
           document.getElementById("error").innerText =
             "Enter particular points";
           document.getElementById("order").innerText = orderEq;
