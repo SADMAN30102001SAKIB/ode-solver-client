@@ -103,6 +103,7 @@ form.addEventListener("submit", function (e) {
     if (document.getElementById("ins")) {
       document.getElementById("ins").innerText = "";
     }
+    flag2 = 1;
 
     const equation = document.getElementById("odeEq").value;
 
@@ -123,7 +124,7 @@ form.addEventListener("submit", function (e) {
         const generalEq = response[1];
         const orderEq = response[2];
         const inputEq = response[3];
-        // console.log(response);
+        console.log(response);
         flag = 1;
 
         if (
