@@ -20,7 +20,13 @@
       <form method="post" id="formData" class="glass-panel">
         <h1>Enter ODE:</h1>
         <br />
-        <input type="text" class="inputField" id="odeEq" name="equation" />
+        <input
+          type="text"
+          class="inputField"
+          id="odeEq"
+          name="equation"
+          placeholder="D^3 + D^4 - D + 2*e^(x)y = 0"
+        />
         <button placeholder="Submit" class="btn" type="submit">
           Get General Solution
         </button>
@@ -31,6 +37,54 @@
       <h2 id="order"></h2>
       <h2 id="ans"></h2>
       <h2 id="partAns"></h2>
+    </div>
+    <div class="sidebar">
+      <div class="sidebar-content">
+        <h2>Instructions:</h2>
+        <ul>
+          <li>
+            <p>
+              i) Be careful with brackets(). Don't write (f(x)D^n), (f(x)y^n),
+              sinx, cosx, logx, rootx, e^x, or a mixture of these, write
+              (f(x))D^n, (f(x))y, f(x)y, f(x)D^n, sin(x), cos(x), log(x),
+              root(x) & e^(x). Here, f(x) is any function
+            </p>
+          </li>
+          <li>
+            <p>
+              ii) Don't write 'D^n = y/f(x)', write 'D^n = (1/f(x))y', because
+              'D^n' & 'y' terms can't be divided. So, make sure to simplify the
+              equation in f(x)D^n+...=g(x) format
+            </p>
+          </li>
+          <li>
+            <p>
+              iii) Don't write rooty or root(y), write y^0.5. Don't write 1/y,
+              write y^-1. Don't write nf(x), write n*f(x). And remember that, D
+              = dy/dx ('y' is the dependent variable, and 'x' is the independent
+              variable.)
+            </p>
+          </li>
+          <li>
+            <p>
+              iv) So, always give the co-efficients in front of D^n or y (Don't
+              write y*f(x), write f(x)*y) & 'y' can't be a power of f(x (f(x)^y
+              is not allowed)
+            </p>
+          </li>
+          <li>
+            <p>
+              v) This is a demo syntax: yD^3 + D^4 - root(sin(x^3))D +
+              (10*log(x) + 2*e^(x))y = (cos(x))^2 - (1/x)y^0.5
+            </p>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="burger" id="burger">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
     </div>
   </body>
   <script src="script.js"></script>
