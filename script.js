@@ -1,6 +1,29 @@
 var form = document.getElementById("formData");
 var form2 = document.getElementById("myForm");
 
+document.addEventListener("DOMContentLoaded", function () {
+  const sidebar = document.querySelector(".sidebar");
+  const burger = document.querySelector("#burger");
+
+  function openSidebar() {
+    sidebar.style.right = "0%";
+    burger.classList.add("change");
+  }
+
+  function closeSidebar() {
+    sidebar.style.right = "-50%";
+    burger.classList.remove("change");
+  }
+
+  burger.addEventListener("click", function () {
+    if (sidebar.style.right == "-50%") {
+      openSidebar();
+    } else {
+      closeSidebar();
+    }
+  });
+});
+
 function replaceAllOccurrences(
   inputString,
   substringToReplace,
