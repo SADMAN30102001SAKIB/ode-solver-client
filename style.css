@@ -210,6 +210,11 @@ li {
     font-size: medium;
   }
 
+  .sidebar {
+    width: 80%;
+    right: -80%;
+  }
+
   .sidebar-content {
     font-size: smaller;
   }
