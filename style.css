@@ -204,7 +204,7 @@ li {
 
 @media (max-width: 768px) {
   .inputField {
-    width: 115%;
+    width: 110%;
     max-width: 400px;
     font-weight: normal;
     font-size: medium;
