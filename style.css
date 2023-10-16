@@ -14,7 +14,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh; /* Ensures the body takes at least the full viewport height */
+  min-height: 100vh;
   scroll-behavior: smooth;
   font-family: "Tilt Neon";
 }
@@ -24,11 +24,17 @@ body {
 #ans,
 #partAns {
   margin: 1%;
-  width: 100%; /* Adjust the width as needed for responsiveness */
+  width: 100%;
   margin-left: 20%;
 }
 
+#order {
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+
 #partAns {
+  margin-top: 10%;
   margin-bottom: 10%;
 }
 
@@ -39,7 +45,7 @@ body {
 
 .container {
   width: 100%;
-  max-width: 800px; /* Set a maximum width to prevent content from becoming too wide on large screens */
+  max-width: 800px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -50,7 +56,7 @@ body {
 
 #myForm {
   width: 100%;
-  max-width: 400px; /* Adjust the maximum width as needed */
+  max-width: 400px;
   padding-right: 10%;
 }
 
@@ -65,7 +71,7 @@ body {
 
 .inputField {
   width: 300%;
-  max-width: 800px; /* Adjust the maximum width as needed */
+  max-width: 800px;
   height: 3rem;
   padding-left: 5%;
   border-radius: 20px;
