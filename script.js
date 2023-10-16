@@ -77,6 +77,18 @@ function createFormWithInputs(n) {
 
 var flag = 1;
 
+form.addEventListener("input", function () {
+  document.getElementById("error").innerText = "";
+  document.getElementById("order").innerText = "";
+  document.getElementById("myForm").innerHTML = "";
+  document.getElementById("eq").innerText = "";
+  document.getElementById("ans").innerText = "";
+  document.getElementById("partAns").innerText = "";
+  if (document.getElementById("ins")) {
+    document.getElementById("ins").innerText = "";
+  }
+});
+
 form.addEventListener("submit", function (e) {
   e.preventDefault();
   if (flag) {
