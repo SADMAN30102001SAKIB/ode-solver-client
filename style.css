@@ -73,23 +73,27 @@ body {
   font-size: larger;
   background-image: linear-gradient(
     to bottom,
-    rgb(245, 240, 240),
-    rgb(238, 236, 231)
+    rgb(208, 228, 243),
+    rgb(216, 233, 243)
   );
+  border: 1px solid black;
 }
 
 .inputField1,
 .inputField2,
 .inputField3 {
-  width: 50px;
+  width: 40px;
   height: 30px;
   padding-left: 1%;
-  border-radius: 5px;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  border-radius: 10px;
   background-image: linear-gradient(
     to bottom,
-    rgb(245, 240, 240),
-    rgb(238, 236, 231)
+    rgb(208, 231, 248),
+    rgb(220, 235, 244)
   );
+  border: 1px solid black;
 }
 
 .btn,
@@ -100,6 +104,7 @@ body {
   transition: transform 0.2s, box-shadow 0.2s;
   color: #fff;
   border-radius: 5px;
+  border: none;
   background-image: linear-gradient(
     to bottom right,
     rgb(9, 130, 59),
@@ -108,7 +113,7 @@ body {
 }
 
 .label1 {
-  margin-left: 31%;
+  margin-left: 34%;
 }
 
 .btn2 {
@@ -155,7 +160,7 @@ body {
   }
 
   .btn2 {
-    margin-left: 22%;
+    margin-left: 18%;
   }
 
   .lable {
