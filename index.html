@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ODESOlver</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.16/katex.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.16/katex.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <form method="post" id="formData">
+        <h1>Your ODE:</h1>
+        <br />
+        <input type="text" class="inputField" id="odeEq" name="equation" />
+        <button placeholder="Submit" class="btn" type="submit">Solve</button>
+      </form>
+      <form id="myForm" method="post" id="formDataParti"></form>
+      <h2 id="error"></h2>
+      <h2 id="eq"></h2>
+      <h2 id="order"></h2>
+      <h2 id="ans"></h2>
+      <h2 id="partAns"></h2>
+    </div>
+  </body>
+  <script src="script.js"></script>
+</html>
