@@ -167,13 +167,13 @@ form2.addEventListener("submit", function (event) {
     formData.forEach((value, key) => {
       if (value < 0 && key.startsWith("^")) {
         document.getElementById("error").innerText =
-          "y's power can't be negative";
+          "y's power can't be negative.";
         document.getElementById("partAns").innerText = "";
         data = {};
         f = 0;
       } else if (isNaN(value)) {
         document.getElementById("error").innerText =
-          "All conditions should be a number";
+          "All conditions should be a number.";
         document.getElementById("partAns").innerText = "";
         data = {};
         f = 0;
@@ -186,7 +186,7 @@ form2.addEventListener("submit", function (event) {
         }
       } else if (f) {
         document.getElementById("error").innerText =
-          "All conditions are required";
+          "All conditions are required.";
         document.getElementById("partAns").innerText = "";
         data = {};
         f = 0;
