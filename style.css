@@ -79,8 +79,8 @@ body {
   font-size: larger;
   background-image: linear-gradient(
     to bottom,
-    rgb(208, 228, 243),
-    rgb(216, 233, 243)
+    rgb(255, 255, 255),
+    rgb(255, 255, 255)
   );
   border: 1px solid black;
 }
@@ -96,8 +96,8 @@ body {
   border-radius: 10px;
   background-image: linear-gradient(
     to bottom,
-    rgb(208, 231, 248),
-    rgb(220, 235, 244)
+    rgb(255, 255, 255),
+    rgb(255, 255, 255)
   );
   border: 1px solid black;
 }
