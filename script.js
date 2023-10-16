@@ -2,10 +2,12 @@ var form = document.getElementById("formData");
 var form2 = document.getElementById("myForm");
 
 document.addEventListener("DOMContentLoaded", function () {
+  f = 1;
   const sidebar = document.querySelector(".sidebar");
   const burger = document.querySelector("#burger");
 
   function openSidebar() {
+    sidebar.style.transform = "scale(1)";
     sidebar.style.right = "0%";
     burger.classList.add("change");
   }
@@ -16,17 +18,23 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
       sidebar.style.right = "-50%";
     }
+    f = 0;
+    setTimeout(() => {
+      sidebar.style.transform = "scale(0)";
+      f = 1;
+    }, 500);
     burger.classList.remove("change");
   }
 
   burger.addEventListener("click", function () {
     if (
-      sidebar.style.right == "-50%" ||
-      sidebar.style.right == "-80%" ||
-      sidebar.style.right == ""
+      (sidebar.style.right == "-50%" ||
+        sidebar.style.right == "-80%" ||
+        sidebar.style.right == "") &&
+      f
     ) {
       openSidebar();
-    } else {
+    } else if (f) {
       closeSidebar();
     }
   });
