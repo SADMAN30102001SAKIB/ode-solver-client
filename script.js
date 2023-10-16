@@ -94,7 +94,8 @@ form.addEventListener("submit", function (e) {
   e.preventDefault();
   if (flag) {
     // console.log(document.getElementById("myFrom"));
-    document.getElementById("error").innerText = "Solving...";
+    document.getElementById("error").innerText = "";
+    document.getElementsByClassName("btn")[0].innerText = "Solving equation...";
     document.getElementById("order").innerText = "";
     document.getElementById("myForm").innerHTML = "";
     document.getElementById("eq").innerText = "";
@@ -124,7 +125,7 @@ form.addEventListener("submit", function (e) {
         const generalEq = response[1];
         const orderEq = response[2];
         const inputEq = response[3];
-        console.log(response);
+        // console.log(response);
         flag = 1;
 
         if (
@@ -134,10 +135,14 @@ form.addEventListener("submit", function (e) {
           enteredEq.startsWith("Can")
         ) {
           document.getElementById("error").innerText = enteredEq;
+          document.getElementsByClassName("btn")[0].innerText =
+            "Get General Solution";
         } else {
           document.getElementById("odeEq").value = inputEq;
           document.getElementById("error").innerText =
             "Enter particular points";
+          document.getElementsByClassName("btn")[0].innerText =
+            "Get General Solution";
           document.getElementById("order").innerText = orderEq;
           const order = orderEq.split("order")[1];
           // console.log(parseInt(order));
@@ -156,7 +161,10 @@ var flag2 = 1;
 form2.addEventListener("submit", function (event) {
   event.preventDefault();
   if (flag2) {
-    document.getElementById("error").innerText = "Solving...";
+    document.getElementById("error").innerText = "";
+    document.getElementsByClassName("btn2")[0].value =
+      "    Solving equation...    ";
+    console.log(document.getElementsByClassName("btn2")[0]);
     var form2 = document.getElementById("myForm");
 
     const formData = new FormData(form2);
@@ -166,12 +174,16 @@ form2.addEventListener("submit", function (event) {
     var f = 1;
     formData.forEach((value, key) => {
       if (value < 0 && key.startsWith("^")) {
+        document.getElementsByClassName("btn2")[0].value =
+          "Get Particular Solution";
         document.getElementById("error").innerText =
           "y's power can't be negative.";
         document.getElementById("partAns").innerText = "";
         data = {};
         f = 0;
       } else if (isNaN(value)) {
+        document.getElementsByClassName("btn2")[0].value =
+          "Get Particular Solution";
         document.getElementById("error").innerText =
           "All conditions should be a number.";
         document.getElementById("partAns").innerText = "";
@@ -185,6 +197,8 @@ form2.addEventListener("submit", function (event) {
           }
         }
       } else if (f) {
+        document.getElementsByClassName("btn2")[0].value =
+          "Get Particular Solution";
         document.getElementById("error").innerText =
           "All conditions are required.";
         document.getElementById("partAns").innerText = "";
@@ -227,8 +241,12 @@ form2.addEventListener("submit", function (event) {
           flag2 = 1;
 
           if (response[0].startsWith("Can")) {
+            document.getElementsByClassName("btn2")[0].value =
+              "Get Particular Solution";
             document.getElementById("error").innerText = response[0];
           } else {
+            document.getElementsByClassName("btn2")[0].value =
+              "Get Particular Solution";
             document.getElementById("error").innerText = "";
             renderEquation2(response[0], document.getElementById("partAns"));
           }
