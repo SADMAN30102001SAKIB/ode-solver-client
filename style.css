@@ -120,7 +120,6 @@ li {
 .glass-panel {
   background: rgb(37, 40, 54);
   border-radius: 20px;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
   padding: 20px;
   width: 100%;
 }
@@ -218,7 +217,7 @@ li {
 
 @media (max-width: 800px) {
   .inputField {
-    width: 115%;
+    width: 110%;
     max-width: 400px;
     font-weight: normal;
     font-size: medium;
