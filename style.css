@@ -6,18 +6,15 @@
 
 body {
   width: 100vw;
-  background-image: linear-gradient(
-    to bottom,
-    rgb(236, 224, 218),
-    rgb(221, 221, 221)
-  );
+  background-image: linear-gradient(to bottom, rgb(3, 6, 21), rgb(30, 31, 35));
   backdrop-filter: blur(10px);
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  font-family: "Tilt Neon";
+  font-family: "Tilt Neon", Arial;
   overflow-x: hidden;
+  color: whitesmoke;
 }
 
 .sidebar {
@@ -26,16 +23,17 @@ body {
   position: fixed;
   top: 0;
   right: -50%;
-  background-color: #333;
+  background-color: rgb(31, 33, 46);
   overflow-x: hidden;
-  transition: right 0.5s;
+  transition: right 0.3s;
+  transition-timing-function: ease-in-out;
   transform: scale(0);
   z-index: 1;
   padding: 5%;
 }
 
 .sidebar-content {
-  color: #fff;
+  color: whitesmoke;
   z-index: 1;
 }
 
@@ -56,15 +54,15 @@ li {
 .bar {
   width: 25px;
   height: 3px;
-  background-color: rgb(0, 0, 0);
+  background-color: whitesmoke;
   margin: 3px 0;
   transition: 0.4s;
+  transition-timing-function: ease-in-out;
   z-index: 2;
 }
 
 .change .bar:nth-child(1) {
   transform: rotate(-45deg) translate(-6px, 7px);
-  background-color: rgb(255, 255, 255);
 }
 
 .change .bar:nth-child(2) {
@@ -73,11 +71,10 @@ li {
 
 .change .bar:nth-child(3) {
   transform: rotate(45deg) translate(-6px, -7px);
-  background-color: rgb(255, 255, 255);
 }
 
 #eq,
-#order,
+#homo,
 #ans,
 #partAns {
   margin: 1%;
@@ -85,13 +82,12 @@ li {
   margin-left: 20%;
 }
 
-#order {
-  margin-top: 10%;
-  margin-bottom: 10%;
+#homo {
+  margin-bottom: 5%;
 }
 
 #partAns {
-  margin-top: 10%;
+  margin-top: 5%;
   margin-bottom: 10%;
 }
 
@@ -112,12 +108,14 @@ li {
   flex-direction: column;
   position: relative;
   overflow-x: hidden;
+  transition: filter 0.3s;
+  transition-timing-function: ease-in-out;
 }
 
 .glass-panel {
-  background: rgba(255, 255, 255, 0.5);
+  background: rgb(37, 40, 54);
   border-radius: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
   padding: 20px;
   width: 100%;
 }
@@ -136,6 +134,7 @@ li {
   flex-direction: column;
   margin-bottom: 5%;
   margin-top: 3%;
+  color: whitesmoke;
 }
 
 .inputField {
@@ -146,12 +145,11 @@ li {
   border-radius: 20px;
   font-weight: bold;
   font-size: larger;
-  background-image: linear-gradient(
-    to bottom,
-    rgb(255, 255, 255),
-    rgb(255, 255, 255)
-  );
-  border: 1px solid black;
+  color: whitesmoke;
+  background: rgba(72, 77, 101, 0);
+  border: 1px solid whitesmoke;
+  transition: background 0.1s;
+  transition-timing-function: ease-in-out;
 }
 
 .inputField1,
@@ -163,12 +161,15 @@ li {
   margin-top: 1%;
   margin-bottom: 1%;
   border-radius: 10px;
-  background-image: linear-gradient(
-    to bottom,
-    rgb(255, 255, 255),
-    rgb(255, 255, 255)
-  );
-  border: 1px solid black;
+  color: whitesmoke;
+  background: rgba(72, 77, 101, 1);
+  border: 1px solid whitesmoke;
+  transition: background 0.1s;
+  transition-timing-function: ease-in-out;
+}
+
+.inputField:hover {
+  background: rgba(72, 77, 101, 1);
 }
 
 .btn,
@@ -176,15 +177,24 @@ li {
   margin: 10px;
   padding: 10px 25px;
   font-size: 16px;
-  transition: transform 0.2s, box-shadow 0.2s;
-  color: #fff;
+  transition: letter-spacing 0.1s;
+  transition-timing-function: ease-in-out;
+  color: whitesmoke;
   border-radius: 5px;
   cursor: pointer;
   border: none;
   background-image: linear-gradient(
     to bottom right,
-    rgb(9, 130, 59),
-    rgb(64, 199, 30)
+    rgb(80, 33, 255),
+    rgb(117, 79, 255)
+  );
+}
+
+.btn2 {
+  background-image: linear-gradient(
+    to bottom right,
+    rgb(251, 27, 45),
+    rgb(252, 74, 89)
   );
 }
 
@@ -198,13 +208,12 @@ li {
 
 .btn:hover,
 .btn2:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  letter-spacing: 0.5px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 800px) {
   .inputField {
-    width: 110%;
+    width: 115%;
     max-width: 400px;
     font-weight: normal;
     font-size: medium;
@@ -220,13 +229,19 @@ li {
   }
 
   #eq,
-  #order,
+  #homo,
   #ans,
   #partAns {
     margin-left: 10%;
   }
 
-  #order {
+  #ans,
+  #partAns {
+    font-size: x-large;
+    overflow-x: scroll;
+  }
+
+  #homo {
     width: 90%;
   }
 
@@ -245,7 +260,7 @@ li {
   }
 
   .btn2 {
-    margin-left: 22%;
+    margin-left: 19%;
   }
 
   .lable {
