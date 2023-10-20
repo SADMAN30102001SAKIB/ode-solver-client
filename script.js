@@ -1,5 +1,6 @@
 var form = document.getElementById("formData");
 var form2 = document.getElementById("myForm");
+var order = 0;
 
 document.addEventListener("DOMContentLoaded", function () {
   f = 1;
@@ -10,6 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
     sidebar.style.transform = "scale(1)";
     sidebar.style.right = "0%";
     burger.classList.add("change");
+    document.getElementsByClassName("container")[0].style.filter = "blur(15px)";
   }
 
   function closeSidebar() {
@@ -22,8 +24,9 @@ document.addEventListener("DOMContentLoaded", function () {
     setTimeout(() => {
       sidebar.style.transform = "scale(0)";
       f = 1;
-    }, 500);
+    }, 300);
     burger.classList.remove("change");
+    document.getElementsByClassName("container")[0].style.filter = "blur(0px)";
   }
 
   burger.addEventListener("click", function () {
@@ -62,12 +65,12 @@ function createFormWithInputs(n) {
   if (!document.getElementById("ins")) {
     const ins = document.createElement("div");
     ins.setAttribute("id", "ins");
-    ins.setAttribute("style", "margin-right: 2%;");
+    ins.setAttribute("style", "padding-right: 3%;");
     form.parentNode.insertBefore(ins, form);
-    katex.render("y^{primeCount}(x) = y", ins);
+    katex.render("y^{deriv.No.}(x) = y", ins);
   } else {
     document.getElementById("ins").innerText = "";
-    katex.render("y^{primeCount}(x) = y", document.getElementById("ins"));
+    katex.render("y^{deriv.No.}(x) = y", document.getElementById("ins"));
   }
 
   for (let i = 1, j = 1, k = 1; i <= 3 * n; i++) {
@@ -83,13 +86,14 @@ function createFormWithInputs(n) {
       k++;
     }
     form.appendChild(input);
-
+    // primeCount
+    // derivNo
     const label = document.createElement("label");
     if (j == 2) {
-      label.textContent = "y^(";
+      label.textContent = "y^";
       label.setAttribute("class", "label1");
     } else if (j == 3) {
-      label.textContent = ")(";
+      label.textContent = "(";
     } else {
       label.textContent = ")=";
     }
@@ -116,7 +120,7 @@ var flag = 1;
 
 form.addEventListener("input", function () {
   document.getElementById("error").innerText = "";
-  document.getElementById("order").innerText = "";
+  document.getElementById("homo").innerText = "";
   document.getElementById("myForm").innerHTML = "";
   document.getElementById("eq").innerText = "";
   document.getElementById("ans").innerText = "";
@@ -132,7 +136,7 @@ form.addEventListener("submit", function (e) {
   if (flag) {
     document.getElementById("error").innerText = "";
     document.getElementsByClassName("btn")[0].innerText = "Solving equation...";
-    document.getElementById("order").innerText = "";
+    document.getElementById("homo").innerText = "";
     document.getElementById("myForm").innerHTML = "";
     document.getElementById("eq").innerText = "";
     document.getElementById("ans").innerText = "";
@@ -165,7 +169,7 @@ form.addEventListener("submit", function (e) {
         flag = 1;
 
         if (
-          enteredEq.startsWith("Deg") ||
+          enteredEq.startsWith("Order") ||
           enteredEq.startsWith("Don") ||
           enteredEq.startsWith("An") ||
           enteredEq.startsWith("Can")
@@ -175,15 +179,22 @@ form.addEventListener("submit", function (e) {
             "Get General Solution";
         } else {
           document.getElementById("odeEq").value = inputEq;
-          document.getElementById("error").innerText =
-            "Enter particular points";
+          document.getElementById("error").innerText = "Enter Conditions";
           document.getElementsByClassName("btn")[0].innerText =
             "Get General Solution";
-          document.getElementById("order").innerText = orderEq;
-          const order = orderEq.split("order")[1];
+          order = orderEq.split("order")[1];
+          document.getElementById("homo").innerText = orderEq.split("order")[0];
           createFormWithInputs(parseInt(order));
-          renderEquation(enteredEq, document.getElementById("eq"));
-          renderEquation(generalEq, document.getElementById("ans"));
+          renderEquation(
+            enteredEq,
+            document.getElementById("eq"),
+            parseInt(order)
+          );
+          renderEquation(
+            generalEq,
+            document.getElementById("ans"),
+            parseInt(order)
+          );
         }
       }
     };
@@ -210,7 +221,7 @@ form2.addEventListener("submit", function (event) {
         document.getElementsByClassName("btn2")[0].value =
           "Get Particular Soln";
         document.getElementById("error").innerText =
-          "y's power can't be negative.";
+          "Derivative Number of y can't be negative.";
         document.getElementById("partAns").innerText = "";
         data = {};
         f = 0;
@@ -218,7 +229,7 @@ form2.addEventListener("submit", function (event) {
         document.getElementsByClassName("btn2")[0].value =
           "Get Particular Soln";
         document.getElementById("error").innerText =
-          "All conditions should be a number.";
+          "All values should be a number.";
         document.getElementById("partAns").innerText = "";
         data = {};
         f = 0;
@@ -232,29 +243,21 @@ form2.addEventListener("submit", function (event) {
       } else if (f) {
         document.getElementsByClassName("btn2")[0].value =
           "Get Particular Soln";
-        document.getElementById("error").innerText =
-          "All conditions are required.";
+        document.getElementById("error").innerText = "All values are required.";
         document.getElementById("partAns").innerText = "";
         data = {};
         f = 0;
       }
     });
-
     if (f) {
       var arr = [];
       for (var i = 0; i <= max; i++) {
         arr[i] = [];
       }
-      for (
-        let i = 0;
-        i <
-        parseInt(document.getElementById("order").innerText.split("order")[1]);
-        i++
-      ) {
+      for (let i = 0; i < parseInt(order); i++) {
         arr[data["^" + (i + 1)]].push(parseInt(data["x" + (i + 1)]));
         arr[data["^" + (i + 1)]].push(parseInt(data["y" + (i + 1)]));
       }
-
       const equation = document.getElementById("odeEq").value;
 
       var xhr = new XMLHttpRequest();
@@ -287,7 +290,7 @@ form2.addEventListener("submit", function (event) {
   }
 });
 
-function renderEquation(response, element) {
+function renderEquation(response, element, order) {
   response = response.replace("\\left[", "");
   response = response.replace("\\right]", "");
   if (response.includes(", \\  y")) {
@@ -305,7 +308,12 @@ function renderEquation(response, element) {
     const newElement = document.createElement("div");
     newElement.classList.add("lable");
     if (element.id == "eq") {
-      newElement.textContent = "Entered ODE:";
+      // response[i] = replaceAllOccurrences(
+      //   response[i],
+      //   "y{\\left(x \\right)}",
+      //   "y"
+      // );
+      newElement.textContent = `Order ${order}, Entered ODE:`;
     } else {
       response[i] = replaceAllOccurrences(
         response[i],
