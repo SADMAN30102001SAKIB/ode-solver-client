@@ -82,6 +82,11 @@ li {
   margin-left: 20%;
 }
 
+#ans,
+#partAns {
+  font-size: large;
+}
+
 #homo {
   margin-bottom: 5%;
 }
