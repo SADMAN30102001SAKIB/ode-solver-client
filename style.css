@@ -40,6 +40,7 @@ body.light-mode {
   height: 20px;
   display: inline-block;
   border-radius: 25px;
+  border: 1px solid white;
   cursor: pointer;
 }
 
@@ -62,6 +63,7 @@ body.light-mode {
 
 .toggle-checkbox:checked + .toggle-label {
   background-color: #fff;
+  border: 1px solid black;
 }
 
 .sidebar {
