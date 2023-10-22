@@ -60,6 +60,10 @@ body.light-mode {
   background-color: #000;
 }
 
+.toggle-checkbox:checked + .toggle-label {
+  background-color: #fff;
+}
+
 .sidebar {
   width: 50%;
   height: 100%;
