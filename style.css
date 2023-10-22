@@ -37,7 +37,7 @@ body.light-mode {
   left: 20px;
   background-color: #888;
   width: 40px;
-  height: 21px;
+  height: 22px;
   display: inline-block;
   border-radius: 25px;
   border: 1px solid white;
@@ -57,7 +57,7 @@ body.light-mode {
 }
 
 .toggle-checkbox:checked + .toggle-label:after {
-  transform: translateX(20px);
+  transform: translateX(18px);
   background-color: #000;
 }
 
