@@ -15,7 +15,8 @@ body {
   font-family: "Tilt Neon", Arial;
   overflow-x: hidden;
   color: whitesmoke;
-  transition: 0.4s;
+  transition: background-image 0.4s;
+  transition-timing-function: ease-in-out;
 }
 
 body.light-mode {
@@ -54,6 +55,7 @@ body.light-mode {
   top: 1px;
   left: 1px;
   transition: 0.2s;
+  transition-timing-function: ease-in-out;
 }
 
 .toggle-label:before {
@@ -61,6 +63,7 @@ body.light-mode {
   top: 0px;
   left: 5px;
   transition: 0.2s;
+  transition-timing-function: ease-in-out;
   content: "\263D";
   font-size: 14px;
   color: #000;
@@ -203,6 +206,7 @@ li {
   width: 100%;
   color: whitesmoke;
   transition: 0.4s;
+  transition-timing-function: ease-in-out;
 }
 
 #myForm {
