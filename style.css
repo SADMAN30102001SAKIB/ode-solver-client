@@ -40,8 +40,8 @@ body.light-mode {
   height: 22px;
   display: inline-block;
   border-radius: 25px;
-  border: 1px solid white;
   cursor: pointer;
+  border: 1px solid white;
 }
 
 .toggle-label:after {
@@ -56,9 +56,27 @@ body.light-mode {
   transition: 0.2s;
 }
 
+.toggle-label:before {
+  position: absolute;
+  top: 0px;
+  left: 5px;
+  transition: 0.2s;
+  content: "\263D";
+  font-size: 14px;
+  color: #000;
+  z-index: 1;
+}
+
 .toggle-checkbox:checked + .toggle-label:after {
-  transform: translateX(18px);
+  transform: translateX(19px);
   background-color: #000;
+}
+
+.toggle-checkbox:checked + .toggle-label:before {
+  transform: translateX(18px);
+  content: "\2600";
+  font-size: 14px;
+  color: #fdb813;
 }
 
 .toggle-checkbox:checked + .toggle-label {
