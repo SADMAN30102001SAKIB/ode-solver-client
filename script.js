@@ -2,6 +2,54 @@ var form = document.getElementById("formData");
 var form2 = document.getElementById("myForm");
 var order = 0;
 
+const themeToggle = document.getElementsByClassName("toggle-label")[0];
+const body = document.body;
+themeToggle.addEventListener("click", () => {
+  body.classList.toggle("light-mode");
+  document.getElementsByClassName("bar")[0].classList.toggle("light-mode");
+  document.getElementsByClassName("bar")[1].classList.toggle("light-mode");
+  document.getElementsByClassName("bar")[2].classList.toggle("light-mode");
+  document.querySelector(".btn").classList.toggle("light-mode");
+  document.querySelector(".glass-panel").classList.toggle("light-mode");
+  document.querySelector(".inputField").classList.toggle("light-mode");
+  if (document.querySelector(".inputField1")) {
+    for (
+      let i = 0;
+      i < document.getElementsByClassName("inputField1").length;
+      i++
+    ) {
+      document
+        .getElementsByClassName("inputField1")
+        [i].classList.toggle("light-mode");
+    }
+  }
+  if (document.querySelector(".inputField2")) {
+    for (
+      let i = 0;
+      i < document.getElementsByClassName("inputField2").length;
+      i++
+    ) {
+      document
+        .getElementsByClassName("inputField2")
+        [i].classList.toggle("light-mode");
+    }
+  }
+  if (document.querySelector(".inputField3")) {
+    for (
+      let i = 0;
+      i < document.getElementsByClassName("inputField3").length;
+      i++
+    ) {
+      document
+        .getElementsByClassName("inputField3")
+        [i].classList.toggle("light-mode");
+    }
+  }
+  if (document.querySelector(".btn2")) {
+    document.querySelector(".btn2").classList.toggle("light-mode");
+  }
+});
+
 document.addEventListener("DOMContentLoaded", function () {
   f = 1;
   const sidebar = document.querySelector(".sidebar");
@@ -77,6 +125,9 @@ function createFormWithInputs(n) {
     const input = document.createElement("input");
     input.type = "text";
     input.className = "inputField" + j++;
+    if (document.getElementById("themeToggle").checked) {
+      input.classList.add("light-mode");
+    }
     if (j == 2) {
       input.name = "^" + k;
     } else if (j == 3) {
@@ -109,6 +160,9 @@ function createFormWithInputs(n) {
   const submitButton = document.createElement("input");
   submitButton.type = "submit";
   submitButton.classList.add("btn2");
+  if (document.getElementById("themeToggle").checked) {
+    submitButton.classList.add("light-mode");
+  }
   submitButton.value = "Get Particular Soln";
 
   form.appendChild(submitButton);
