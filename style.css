@@ -15,6 +15,49 @@ body {
   font-family: "Tilt Neon", Arial;
   overflow-x: hidden;
   color: whitesmoke;
+  transition: 0.4s;
+}
+
+body.light-mode {
+  background-image: linear-gradient(
+    to bottom,
+    rgb(236, 224, 218),
+    rgb(221, 221, 221)
+  );
+  color: black;
+}
+
+.toggle-checkbox {
+  display: none;
+}
+
+.toggle-label {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background-color: #888;
+  width: 40px;
+  height: 20px;
+  display: inline-block;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.toggle-label:after {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: #fff;
+  top: 1px;
+  left: 1px;
+  transition: 0.2s;
+}
+
+.toggle-checkbox:checked + .toggle-label:after {
+  transform: translateX(20px);
+  background-color: #000;
 }
 
 .sidebar {
@@ -61,8 +104,16 @@ li {
   z-index: 2;
 }
 
+.bar.light-mode {
+  background-color: black;
+}
+
 .change .bar:nth-child(1) {
   transform: rotate(-45deg) translate(-6px, 7px);
+}
+
+.change .bar.light-mode:nth-child(1) {
+  background-color: whitesmoke;
 }
 
 .change .bar:nth-child(2) {
@@ -71,6 +122,10 @@ li {
 
 .change .bar:nth-child(3) {
   transform: rotate(45deg) translate(-6px, -7px);
+}
+
+.change .bar.light-mode:nth-child(3) {
+  background-color: whitesmoke;
 }
 
 #eq,
@@ -122,6 +177,8 @@ li {
   border-radius: 20px;
   padding: 20px;
   width: 100%;
+  color: whitesmoke;
+  transition: 0.4s;
 }
 
 #myForm {
@@ -138,7 +195,12 @@ li {
   flex-direction: column;
   margin-bottom: 5%;
   margin-top: 3%;
-  color: whitesmoke;
+}
+
+.glass-panel.light-mode {
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  color: #000;
 }
 
 .inputField {
@@ -153,7 +215,19 @@ li {
   background: rgba(72, 77, 101, 0);
   border: 1px solid whitesmoke;
   transition: background 0.1s;
+  transition: background-image 0.4s;
+  transition: color 0.4s;
   transition-timing-function: ease-in-out;
+}
+
+.inputField.light-mode {
+  color: black;
+  background-image: linear-gradient(
+    to bottom,
+    rgb(255, 255, 255),
+    rgb(255, 255, 255)
+  );
+  border: 1px solid black;
 }
 
 .inputField1,
@@ -171,9 +245,28 @@ li {
   transition: background 0.1s;
   transition-timing-function: ease-in-out;
 }
+.inputField1.light-mode,
+.inputField2.light-mode,
+.inputField3.light-mode {
+  color: black;
+  background-image: linear-gradient(
+    to bottom,
+    rgb(255, 255, 255),
+    rgb(255, 255, 255)
+  );
+  border: 1px solid black;
+}
 
 .inputField:hover {
   background: rgba(72, 77, 101, 1);
+}
+
+.inputField.light-mode:hover {
+  background-image: linear-gradient(
+    to bottom,
+    rgb(255, 255, 255),
+    rgb(255, 255, 255)
+  );
 }
 
 .btn,
@@ -181,6 +274,7 @@ li {
   margin: 10px;
   padding: 10px 25px;
   font-size: 16px;
+  transition: background-image 0.4s;
   transition: letter-spacing 0.1s;
   transition-timing-function: ease-in-out;
   color: whitesmoke;
@@ -199,6 +293,15 @@ li {
     to bottom right,
     rgb(251, 27, 45),
     rgb(252, 74, 89)
+  );
+}
+
+.btn.light-mode,
+.btn2.light-mode {
+  background-image: linear-gradient(
+    to bottom right,
+    rgb(9, 130, 59),
+    rgb(64, 199, 30)
   );
 }
 
