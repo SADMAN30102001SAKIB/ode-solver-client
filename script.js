@@ -137,8 +137,6 @@ function createFormWithInputs(n) {
       k++;
     }
     form.appendChild(input);
-    // primeCount
-    // derivNo
     const label = document.createElement("label");
     if (j == 2) {
       label.textContent = "y^";
@@ -173,7 +171,12 @@ function createFormWithInputs(n) {
 var flag = 1;
 
 form.addEventListener("input", function () {
-  document.getElementById("error").innerText = "";
+  if (
+    document.getElementById("error").innerText !=
+    "Please wait, it's taking longer than usual."
+  ) {
+    document.getElementById("error").innerText = "";
+  }
   document.getElementById("homo").innerText = "";
   document.getElementById("myForm").innerHTML = "";
   document.getElementById("eq").innerText = "";
@@ -182,12 +185,18 @@ form.addEventListener("input", function () {
   if (document.getElementById("ins")) {
     document.getElementById("ins").innerText = "";
   }
-  flag = 1;
 });
 
 form.addEventListener("submit", function (e) {
   e.preventDefault();
   if (flag) {
+    var f = 1;
+    setTimeout(() => {
+      if (f) {
+        document.getElementById("error").innerText =
+          "Please wait, it's taking longer than usual.";
+      }
+    }, 3000);
     document.getElementById("error").innerText = "";
     document.getElementsByClassName("btn")[0].innerText = "Solving equation...";
     document.getElementById("homo").innerText = "";
@@ -211,6 +220,8 @@ form.addEventListener("submit", function (e) {
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.onreadystatechange = function () {
       if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+        f = 0;
+        document.getElementById("error").innerText = "";
         document.getElementById("myForm").innerHTML = "";
         document.getElementById("partAns").innerText = "";
 
@@ -261,6 +272,13 @@ var flag2 = 1;
 form2.addEventListener("submit", function (event) {
   event.preventDefault();
   if (flag2) {
+    var f2 = 1;
+    setTimeout(() => {
+      if (f2) {
+        document.getElementById("error").innerText =
+          "Please wait, it's taking longer than usual.";
+      }
+    }, 3000);
     document.getElementById("error").innerText = "";
     document.getElementsByClassName("btn2")[0].value = "Solving equation...";
     var form2 = document.getElementById("myForm");
@@ -323,6 +341,8 @@ form2.addEventListener("submit", function (event) {
       xhr.setRequestHeader("Content-Type", "application/json");
       xhr.onreadystatechange = function () {
         if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+          f2 = 0;
+          document.getElementById("error").innerText = "";
           const response = JSON.parse(xhr.responseText);
           flag2 = 1;
 
