@@ -196,7 +196,7 @@ form.addEventListener("submit", function (e) {
         document.getElementById("error").innerText =
           "Please wait, it's taking longer than usual.";
       }
-    }, 3000);
+    }, 5000);
     document.getElementById("error").innerText = "";
     document.getElementsByClassName("btn")[0].innerText = "Solving equation...";
     document.getElementById("homo").innerText = "";
@@ -278,7 +278,7 @@ form2.addEventListener("submit", function (event) {
         document.getElementById("error").innerText =
           "Please wait, it's taking longer than usual.";
       }
-    }, 3000);
+    }, 5000);
     document.getElementById("error").innerText = "";
     document.getElementsByClassName("btn2")[0].value = "Solving equation...";
     var form2 = document.getElementById("myForm");
