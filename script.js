@@ -196,7 +196,7 @@ form.addEventListener("submit", function (e) {
         document.getElementById("error").innerText =
           "Please wait, it's taking longer than usual.";
       }
-    }, 5000);
+    }, 8000);
     document.getElementById("error").innerText = "";
     document.getElementsByClassName("btn")[0].innerText = "Solving equation...";
     document.getElementById("homo").innerText = "";
@@ -278,7 +278,7 @@ form2.addEventListener("submit", function (event) {
         document.getElementById("error").innerText =
           "Please wait, it's taking longer than usual.";
       }
-    }, 5000);
+    }, 8000);
     document.getElementById("error").innerText = "";
     document.getElementsByClassName("btn2")[0].value = "Solving equation...";
     var form2 = document.getElementById("myForm");
@@ -290,6 +290,7 @@ form2.addEventListener("submit", function (event) {
     var f = 1;
     formData.forEach((value, key) => {
       if (value < 0 && key.startsWith("^")) {
+        f2 = 0;
         document.getElementsByClassName("btn2")[0].value =
           "Get Particular Soln";
         document.getElementById("error").innerText =
@@ -298,6 +299,7 @@ form2.addEventListener("submit", function (event) {
         data = {};
         f = 0;
       } else if (isNaN(value)) {
+        f2 = 0;
         document.getElementsByClassName("btn2")[0].value =
           "Get Particular Soln";
         document.getElementById("error").innerText =
@@ -313,6 +315,7 @@ form2.addEventListener("submit", function (event) {
           }
         }
       } else if (f) {
+        f2 = 0;
         document.getElementsByClassName("btn2")[0].value =
           "Get Particular Soln";
         document.getElementById("error").innerText = "All values are required.";
