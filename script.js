@@ -390,7 +390,7 @@ function renderEquation(response, element, order) {
       //   "y{\\left(x \\right)}",
       //   "y"
       // );
-      newElement.textContent = `Degree ${order}, Entered ODE:`;
+      newElement.textContent = `Entered ODE (degree ${order}):`;
     } else {
       response[i] = replaceAllOccurrences(
         response[i],
