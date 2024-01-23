@@ -214,7 +214,7 @@ form.addEventListener("submit", function (e) {
     var xhr = new XMLHttpRequest();
     xhr.open(
       "POST",
-      "https://d15f1f8a-05eb-4e8d-a50d-12509d35015f-00-2zd6etbdpcfkj.global.replit.dev/odeSolve",
+      "https://d15f1f8a-05eb-4e8d-a50d-12509d35015f-00-1jj5ylp2g2ohv.worf.replit.dev/odeSolve",
       true
     );
     xhr.setRequestHeader("Content-Type", "application/json");
@@ -338,7 +338,7 @@ form2.addEventListener("submit", function (event) {
       var xhr = new XMLHttpRequest();
       xhr.open(
         "POST",
-        "https://d15f1f8a-05eb-4e8d-a50d-12509d35015f-00-2zd6etbdpcfkj.global.replit.dev/odeSolve",
+        "https://d15f1f8a-05eb-4e8d-a50d-12509d35015f-00-1jj5ylp2g2ohv.worf.replit.dev/odeSolve",
         true
       );
       xhr.setRequestHeader("Content-Type", "application/json");
